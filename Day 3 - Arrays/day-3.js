@@ -17,7 +17,11 @@ var array = [88,22,242,1067,418,165,5,440,34,825,44,55,77,858,572,132,550,847,10
 
 // Task 1 - Get the sum of all the elements in the array
 function sumElementsOfArray(array) {
-
+    var str = "";
+for(i=0; i<array.length; i++){
+str += array[array.length];
+}
+console.log(sumElementsOfArray);
 }
 
 // Task 2 - Find a maximum value of all the elements in the array
