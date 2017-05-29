@@ -15,8 +15,13 @@ var array = [88, 22, 242, 1067, 418, 165, 5, 440, 34, 825, 44, 55, 77, 858, 572,
 
 /*  Only work below this line */
 
-test = [4, 2, 3];
+test1 = [4, 2, 3, 10, 20, 9, 5, 1, 6];
+test2 = [10, 3, 5, 6, 20];
+test3 =[-10, -3, -5, -6, -20];
+test4=[1, -4, 3, -6, 7, 0];
 // Task 1 - Get the sum of all the elements in the array
+
+
 function sumElementsOfArray(array) {
     var sum = 0;
     for (var i = 0; i < array.length; i++) {
@@ -24,47 +29,149 @@ function sumElementsOfArray(array) {
     }
     return sum
 }
+console.log("sumElementsOfArray is "+sumElementsOfArray(test1));
+// Task 1 - Get the sum of all the elements in the array
+//Bonus point
+function sumElementsOfArray(array) {
+    var sum = array.reduce(function (a, b) {
+        return a + b;
+    }, 0);
 
+    return sum
+}
+
+console.log("sumElementsOfArray without loop is "+sumElementsOfArray(test1));
+///////////////////////////////////////////////////////////////////////////////////
 // Task 2 - Find a maximum value of all the elements in the array
-function findMaximumValue(array) {
+//way 1
+
+function findMaximumValue1(array) {
     var max = 0;
     for (var i = 0; i < array.length; i++) {
-        if (max <= array[i]) {
+        if (max < array[i]) {
             max = array[i];
         }
     }
     return max
 }
+console.log("findMaximumValue way 1 "+findMaximumValue1(array));
+// Task 2 - Find a maximum value of all the elements in the array
+//way 2
+function findMaximumValue2(array) {
+ var maxValue = array.reduce(function(a, b) {
+    return Math.max(a, b);
+});
+return maxValue
+}
+console.log("findMaximumValue way 2 is "+findMaximumValue2(array));
+// Task 2* - Find the sum of 5 biggest numbers
+
+
+function findSum5MaxValue(array) {
+    var max = 0;
+    array.sort(function(a,b) {
+        if (a < b) { return 1; }
+        else if (a == b) { return 0; }
+        else { return -1; }
+    });
+    for(var i=0;i<5;i++){
+        max+=array[i];
+    }
+    return max
+}
+console.log("findSum5MaxValue is "+findSum5MaxValue(array));
+
+
+
+/////////////////////////////////////////////////////////////////////////////
 
 // Task 3 - Find a minium value of all the elements in the array
 function findMinimumValue(array) {
     var min = array[0];
     for (var i = 0; i < array.length; i++) {
-        if (min >= array[i]) {
+        if (min > array[i]) {
             min = array[i];
         }
     }
     return min
 }
+console.log("findMinimumValue is "+findMinimumValue(array));
 
+
+
+// Task 3* - Find the sum of 5 smallest numbers
+function findSum5MinValue(array) {
+    var min = 0;
+    array.sort(function(a,b) {
+        if (a > b) { return 1; }
+        else if (a == b) { return 0; }
+        else { return -1; }
+    });
+    for(var i=0;i<5;i++){
+        min+=array[i];
+    }
+    return min
+}
+console.log("findSum5MinValue is "+findSum5MinValue(test1));
+/////////////////////////////////////////////////////////////////////////////////////
 
 // Task 4 - Remove element from array
 function removeElement(array, index) {
     return array.splice(index, 1);
 }
+console.log("deleted element is " + removeElement(test1, 2) + " ,the array after delete is " + test1);
 
-
+/////////////////////////////////////////////////////////////////////////////////////
 // Task 5 - Sort the array
-function sortBigArray(array) {
+//way 1
+
+function sortBigArray1(array) {
     array.sort(function (a, b) {
         return a - b
     }
     );
+    return array
+}
+console.log("sortBigArray way 1 is "+sortBigArray1(test1));
+// Task 5 - Sort the array
+//way 2
+function sortBigArray2(array) {
+    var temp;
+    for (var i = array.length; i >= 2; i--) {
+        for (var k = 0; k <= i - 1; k++) {
+            if (array[k] > array[k + 1]) {
+                temp = array[k];
+                array[k] = array[k + 1];
+                array[k + 1] = temp;
+            }
+        }
+    }
+    return array
 }
 
-console.log(sumElementsOfArray(array));
-console.log(findMaximumValue(array));
-console.log(findMinimumValue(array));
-console.log("deleted element is " + removeElement(test, 2) + " ,the array after delete is " + test);
-sortBigArray(array);
-console.log(array);
+console.log("sortBigArray way 2 is "+sortBigArray2(test1));
+///////////////////////////////////////////////////////////////////////////////////////
+
+// Task 6 - Find max product of triplets
+
+function findMaxProduct(array) {
+    var max = [];
+    var index = []; 
+    for (var i = 0; i < array.length - 2; i++) {
+        for (var j = i + 1; j < array.length - 1; j++) {
+            for (var k = j + 1; k < array.length; k++) {
+                max.push(array[i] * array[j] * array[k]);
+                index.push([i,j,k]);
+            }
+        }
+    }
+    var maxValue = max.reduce(function(a, b) {
+    return Math.max(a, b);
+});
+   
+    return [maxValue,index[max.indexOf(maxValue)]]
+}
+
+console.log("Find max product of triplets is");
+console.log(findMaxProduct(test3));
+

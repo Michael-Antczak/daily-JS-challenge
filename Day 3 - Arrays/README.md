@@ -57,3 +57,6 @@ Hint: The functions you have made so far are enough to do this task.
 
 #### Bonus points: 
 Let's say we are given an array `[221,114,34,98,51,34,76,9]`. In how many way could you sort the array? You don't have to write code, just try to describe in your own words how would you do that. 
+
+## Task 6 - Product of triplets
+Let's define a triplet to be 3 numbers from the given array such that `array[i], array[i+1], array[i+2]`. Create a function `findMaxProduct()` that would take an array as input, and the output should be an array `[maxProduct, index]`, where index is the position of the first triplet element. 
