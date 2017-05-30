@@ -132,7 +132,7 @@ function sortBigArray1(array) {
     );
     return array
 }
-console.log("sortBigArray way 1 is "+sortBigArray1(test1));
+console.log("sortBigArray way 1 is "+sortBigArray1(test2));
 // Task 5 - Sort the array
 //way 2
 function sortBigArray2(array) {
@@ -149,7 +149,27 @@ function sortBigArray2(array) {
     return array
 }
 
-console.log("sortBigArray way 2 is "+sortBigArray2(test1));
+console.log("sortBigArray way 2 is "+sortBigArray2(test2));
+
+// Task 5 - Sort the array
+//way 3
+function sortBigArray3(array) {
+  var temp = 0;
+  var max = 0;
+  var min = 0;
+  var newArray = array.slice(0, array.length);
+  for (var i = 0; i < array.length/2; i++) {
+    var newArray = array.slice(i, array.length - i);
+    max = findMaximumValue2(newArray);
+    min = findMinimumValue(newArray);
+    //newArray[newArray.indexOf(min)] = newArray[0];
+    array[i] = min;
+   // newArray[newArray.indexOf(max)] = newArray[newArray.length - 1];
+    array[array.length - i-1] = max;
+  }
+  return array
+}
+console.log("sortBigArray way 3 is "+sortBigArray3(test2));
 ///////////////////////////////////////////////////////////////////////////////////////
 
 // Task 6 - Find max product of triplets
