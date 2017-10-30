@@ -7,7 +7,6 @@ for ( var i = 1 ; i <= 10 ; i++ ) {
     console.log(str);
 }
 
-// Challange 2 - Print a right tree
 
 var stars = "";
 
@@ -17,7 +16,6 @@ for (var j = 0, k = 10 ; j <= 10, k >= 0 ; j++, k--) {
     stars += "*";
 }
 
-// Challenge 3 
 
 var stars = "*";
 

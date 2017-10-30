@@ -1,4 +1,4 @@
-// Day 2 - task 1
+
 
 for ( var i = 0 ; i < 6 ; i++ ) {
 
@@ -14,7 +14,7 @@ for ( var i = 0 ; i < 6 ; i++ ) {
 
 }
 
-// Day 2 - task 2
+
 
 for ( var j = 0 ; j < 6 ; j++ ) {
 
@@ -40,7 +40,7 @@ for ( var j = 0 ; j < 6 ; j++ ) {
    
 
 
-// Day 2 - task 3
+
 
 for ( var i = 0 ; i < 6 ; i++ ) {
 
@@ -81,7 +81,7 @@ for ( var i = 0 ; i < 6 ; i++ ) {
 }
 
 
-// Day 2 - task 4
+
 
 for ( let kk = 1 ; kk < 4 ; kk++ ) {
 
